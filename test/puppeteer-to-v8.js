@@ -1,12 +1,12 @@
-/* globals describe, it */
+/* globals describe, it, before */
 
 var PuppeteerToV8 = require('../lib/puppeteer-to-v8')()
 
 require('chai').should()
 
 describe('puppeteer-to-v8', () => {
-  let v8Coverage;
-  const fixture = require('./fixtures/function-coverage-missing');
+  let v8Coverage
+  const fixture = require('./fixtures/function-coverage-missing')
 
   before(() => {
     PuppeteerToV8.setCoverageInfo(fixture)

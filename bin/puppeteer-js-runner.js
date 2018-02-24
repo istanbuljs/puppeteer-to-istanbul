@@ -1,3 +1,5 @@
+const scriptToRun = '../test/sample_js/sample1.js'
+
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
@@ -11,8 +13,19 @@ const fs = require('fs');
     page.coverage.startCSSCoverage()
   ]);
 
+  const pageHtml = `
+  <html>
+  <head>
+    <script src='${scriptToRun}'></script>
+  </head>
+  </html>`;
+
+  fs.writeFileSync(__dirname + '/puppeteerTemp.html', pageHtml, 'utf8');
+
   // Navigate to page
-  await page.goto('https://www.npmjs.com/');
+  let url = 'file:///' + __dirname + '/puppeteerTemp.html';
+  console.log(url);
+  await page.goto(url);
 
   // Disable both JavaScript and CSS coverage
   const [jsCoverage, cssCoverage] = await Promise.all([

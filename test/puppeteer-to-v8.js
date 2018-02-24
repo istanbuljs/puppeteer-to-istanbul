@@ -8,8 +8,12 @@ describe('puppeteer-to-v8', () => {
   it('translates ranges into v8 format', () => {
     const fixture = require('./fixtures/function-coverage-missing')
 
-    let v8Coverage = PuppeteerToV8.convertCoverage(fixture)
-    console.log(v8Coverage)
+    PuppeteerToV8.setCoverageInfo(fixture)
+
+    let v8Coverage = PuppeteerToV8.convertCoverage()
+
+    // V8 coverage has ranges on a functions object, so check for that
+    v8Coverage[0].functions.ranges.should.eql(fixture[0].ranges)
   })
 
   // use mkdirp:

@@ -53,7 +53,6 @@ async function outputPuppeteerCoverage (input, output) {
     page.coverage.stopJSCoverage(),
     page.coverage.stopCSSCoverage()
   ])
-  console.info(output)
 
   fs.writeFileSync(output, JSON.stringify(jsCoverage, null, 2), 'utf8')
 

@@ -4,4 +4,4 @@ package-lock.json
 .nyc_output
 
 # Ignore outputs from puppeteer-js-runner
-bin/puppeteerTemp.html
+bin/tmp/

@@ -1,4 +1,6 @@
-const scriptToRun = '../test/sample_js/sample1.js'
+const argv = require('yargs').argv
+
+const scriptToRun = argv.file || 'test/sample_js/sample1.js'
 
 const puppeteer = require('puppeteer');
 const fs = require('fs');
@@ -13,17 +15,19 @@ const fs = require('fs');
     page.coverage.startCSSCoverage()
   ]);
 
+  // Script src goes up two directories, since it is in /bin/tmp
+  // This makes it so the script is specified from the project directory level
   const pageHtml = `
   <html>
   <head>
-    <script src='${scriptToRun}'></script>
+    <script src='../../${scriptToRun}'></script>
   </head>
   </html>`;
 
-  fs.writeFileSync(__dirname + '/puppeteerTemp.html', pageHtml, 'utf8');
+  fs.writeFileSync(__dirname + '/tmp/puppeteerTemp.html', pageHtml, 'utf8');
 
   // Navigate to page
-  let url = 'file:///' + __dirname + '/puppeteerTemp.html';
+  let url = 'file:///' + __dirname + '/tmp/puppeteerTemp.html';
   console.log(url);
   await page.goto(url);
 
@@ -33,7 +37,7 @@ const fs = require('fs');
     page.coverage.stopCSSCoverage(),
   ]);
 
-  fs.writeFileSync('output.json', JSON.stringify(jsCoverage, null, 2), 'utf8');
+  fs.writeFileSync(__dirname + '/tmp/output.json', JSON.stringify(jsCoverage, null, 2), 'utf8');
 
   let totalBytes = 0;
   let usedBytes = 0;

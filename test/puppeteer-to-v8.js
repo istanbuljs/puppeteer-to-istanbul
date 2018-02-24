@@ -1,12 +1,15 @@
 /* globals describe, it */
 
-const puppeteerToV8 = require('../lib/puppeteer-to-v8')()
+var PuppeteerToV8 = require('../lib/puppeteer-to-v8')
 
 require('chai').should()
 
 describe('puppeteer-to-v8', () => {
   it('translates ranges into v8 format', () => {
-    console.info(puppeteerToV8)
+    const fixture = require('./fixtures/function-coverage-missing')
+
+    let v8Coverage = new PuppeteerToV8(fixture)
+    console.log(v8Coverage)
   })
 
   // use mkdirp:

@@ -1,3 +1,5 @@
+/* global describe, it */
+
 require('chai').should()
 
 describe('puppeteer-js-runner', () => {

@@ -7,4 +7,3 @@ function b (num) {
 }
 
 a(1, 2)
-b(3)

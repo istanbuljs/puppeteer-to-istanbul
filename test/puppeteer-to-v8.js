@@ -5,13 +5,16 @@ var PuppeteerToV8 = require('../lib/puppeteer-to-v8')()
 require('chai').should()
 
 describe('puppeteer-to-v8', () => {
-  it('translates ranges into v8 format', () => {
-    const fixture = require('./fixtures/function-coverage-missing')
+  let v8Coverage;
+  const fixture = require('./fixtures/function-coverage-missing');
 
+  before(() => {
     PuppeteerToV8.setCoverageInfo(fixture)
 
-    let v8Coverage = PuppeteerToV8.convertCoverage()
+    v8Coverage = PuppeteerToV8.convertCoverage()
+  })
 
+  it('translates ranges into v8 format', () => {
     // V8 coverage has ranges on a functions object, so check for that
     v8Coverage[0].functions.ranges.should.eql(fixture[0].ranges)
   })
@@ -24,8 +27,9 @@ describe('puppeteer-to-v8', () => {
 
   // look at the uuid library:
   // uuid.v4()
-  it('generates scriptID', () => {
-
+  it('generates scriptId', () => {
+    // Ensures that the scriptId is of type 'number'
+    (typeof v8Coverage[0].scriptId).should.eql('number')
   })
 
   // for this test case, make sure we cover what happens

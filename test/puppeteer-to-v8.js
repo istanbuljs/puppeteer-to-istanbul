@@ -1,3 +1,5 @@
+/* globals describe, it */
+
 require('chai').should()
 
 describe('puppeteer-to-v8', () => {

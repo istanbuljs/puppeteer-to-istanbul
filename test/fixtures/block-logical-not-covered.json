@@ -1,0 +1,20 @@
+[
+  {
+    "url": "file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/block-logical-not-covered.js",
+    "ranges": [
+      {
+        "start": 0,
+        "end": 27
+      },
+      {
+        "start": 61,
+        "end": 73
+      },
+      {
+        "start": 78,
+        "end": 111
+      }
+    ],
+    "text": "const a = true\n\nif (false) {\n  console.info('hello world!')\n} else if (a || !a) {\n  console.info('i did run')\n} else {\n  console.info('i should not run')\n}"
+  }
+]

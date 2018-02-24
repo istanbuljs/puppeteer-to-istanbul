@@ -1,0 +1,12 @@
+[
+  {
+    "url": "file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/block-else-not-covered.js",
+    "ranges": [
+      {
+        "start": 0,
+        "end": 44
+      }
+    ],
+    "text": "if (true) {\n  console.info('hello world!')\n} else {\n  function fib () {\n    return 'i am the fibonacci sequence'\n  }\n}"
+  }
+]

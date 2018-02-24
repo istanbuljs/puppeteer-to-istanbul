@@ -2,6 +2,3 @@
 node_modules
 package-lock.json
 .nyc_output
-
-# Ignore outputs from puppeteer-js-runner
-bin/tmp/

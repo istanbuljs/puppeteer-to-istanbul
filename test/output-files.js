@@ -21,7 +21,7 @@ describe('output-files', () => {
   it('handle multiple files with same name, and replace in json', () => {
     // Input from the fixture should be JSONified already
     const fixture = require('./fixtures/function-coverage-full-duplicate.json')
-    const coverageInfo = OutputFiles(fixture).output()
+    const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
 
     // Fixture should and output coverage should not be in the same place
     coverageInfo[0].url.should.not.eql(fixture[0].url)
@@ -34,14 +34,14 @@ describe('output-files', () => {
   // call it something like indexHTML-inline-1.js
   it('appropriately handles only inline JavaScript', () => {
     const fixture = require('./fixtures/inline-script-coverage.json')
-    const coverageInfo = OutputFiles(fixture).output()
+    const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
 
     coverageInfo[0].url.should.include('puppeteerTemp-inline.js')
   })
 
   it('appropriately handles inline and external JavaScript', () => {
     const fixture = require('./fixtures/inline-and-external-script-coverage.json')
-    const coverageInfo = OutputFiles(fixture).output()
+    const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
 
     coverageInfo[0].url.should.eql(movedUrl(fixture[0].url))
     coverageInfo[1].url.should.include('puppeteerTemp-inline.js')
@@ -49,7 +49,7 @@ describe('output-files', () => {
 
   it('appropriately handles two cases of inline JavaScript', () => {
     const fixture = require('./fixtures/two-inline.json')
-    const coverageInfo = OutputFiles(fixture).output()
+    const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
 
     coverageInfo[0].url.should.include('puppeteerTemp-inline.js')
     coverageInfo[1].url.should.include('puppeteerTemp-inline-1.js')

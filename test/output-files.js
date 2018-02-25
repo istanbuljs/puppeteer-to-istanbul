@@ -22,21 +22,44 @@ describe('puppeteer-to-v8', () => {
     it('handle multiple files with same name, and replace in json', () => {
       // Input from the fixture should be JSONified already
       const fixture = require('./fixtures/function-coverage-full-duplicate.json')
-      const outputFiles = OutputFiles(fixture).output()
+      const coverageInfo = OutputFiles(fixture).output()
 
-      outputFiles[0].url.should.eql(fixture[0].url)
-      outputFiles[1].url.should.eql(fixture[0].url.replace('.js', '-1.js'))
+      // Fixture should and output coverage should not be in the same place
+      coverageInfo[0].url.should.not.eql(fixture[0].url)
+      coverageInfo[1].url.should.not.eql(fixture[1].url)
+
+      coverageInfo[0].url.should.eql(movedUrl(fixture[0].url))
+      coverageInfo[1].url.should.eql(movedUrl(fixture[0].url.replace('.js', '-1.js')))
     })
 
     // call it something like indexHTML-inline-1.js
-    it('appropriately handles inline JavaScript', () => {
-      // TODO: Test inline JS handling
+    it('appropriately handles only inline JavaScript', () => {
+      const fixture = require('./fixtures/inline-script-coverage.json')
+      const coverageInfo = OutputFiles(fixture).output()
+
+      coverageInfo[0].url.should.include('puppeteerTemp-inline.js')
+    })
+
+    it('appropriately handles inline and external JavaScript', () => {
+      const fixture = require('./fixtures/inline-and-external-script-coverage.json')
+      const coverageInfo = OutputFiles(fixture).output()
+
+      coverageInfo[0].url.should.eql(movedUrl(fixture[0].url))
+      coverageInfo[1].url.should.include('puppeteerTemp-inline.js')
     })
 
     after(cleanupCoverage)
 
     function cleanupCoverage () {
       rimraf.sync('./coverage')
+    }
+
+    // Takes in a script and rewrites it to the path we expect in /coverage/js
+    function movedUrl(url) {
+      let splitUrl = url.split('/');
+
+      // Prepend the folder to the filename
+      return './coverage/js/' + splitUrl[splitUrl.length - 1];
     }
   })
 })

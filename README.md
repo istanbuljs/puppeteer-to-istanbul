@@ -8,16 +8,45 @@ Convert coverage output from [Coveralls][coveralls] to an [Istanbul][istanbul] f
 
 ## Usage
 
-Puppeteer to Istanbul isn't available on NPM yet, so to use it, first clone the repository. Then run the following commands:
+### to output coverage is Istanbul format with puppeteer
 
-```
-node run.js your_puppeteer_coverage.json
-./node_modules/.bin/nyc report --reporter=html
-```
+1. install _puppeteer-to-istanbul_, `npm i puppeteer-to-istanbul`.
+2. run your code in puppeteer with coverage enabled:
 
+    ```js
+    const pti = require('puppeteer-to-istanbul')
+
+    // Enable both JavaScript and CSS coverage
+    await Promise.all([
+      page.coverage.startJSCoverage(),
+      page.coverage.startCSSCoverage()
+    ]);
+    // Navigate to page
+    await page.goto('https://example.com');
+    // Disable both JavaScript and CSS coverage
+    const [jsCoverage, cssCoverage] = await Promise.all([
+      page.coverage.stopJSCoverage(),
+      page.coverage.stopCSSCoverage(),
+    ]);
+    const coverage = [...jsCoverage, ...cssCoverage];
+    pti.write(jsCoverage)
+    ```
+    
 This will run Istanbul's HTML Reporting through [nyc][nyc] based on the output of the converted `your_puppeteer_coverage.json`.
+    
+### to run istanbul reports
 
-To get a JSON output of your Puppeteer coverage, take a look at [this Puppeteer example](https://github.com/GoogleChrome/puppeteer/blob/v1.1.0/docs/api.md#class-coverage) of pulling coverage, and simply write the `jsCoverage` object out to a JSON file.
+1. install nyc, `npm i nyc`.
+2. use nyc's report functionality:
+
+    ```bash
+    npm run report --reporter=html
+    ```
+    
+_puppeteer-to-istanbul_ outputs temporary files in a format that can be
+consumed by nyc.
+
+see [istanbul](https://github.com/istanbuljs/istanbuljs/tree/master/packages/istanbul-reports/lib) for a list of possible reporters.
 
 ## Project Website
 

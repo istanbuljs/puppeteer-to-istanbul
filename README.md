@@ -59,4 +59,4 @@ Make sure to review our [contributing guide][contributing]
 [coveralls]: https://github.com/GoogleChrome/puppeteer
 [istanbul]: https://github.com/istanbuljs/istanbuljs
 [nyc]: https://github.com/istanbuljs/nyc
-[contributing]: contributing.md
+[contributing]: CONTRIBUTING.md

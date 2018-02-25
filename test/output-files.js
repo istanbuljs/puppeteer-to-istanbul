@@ -7,7 +7,6 @@ const pathLib = require('path')
 const storagePath = '.nyc_output/js'
 const storagePathTop = '.nyc_output'
 
-
 require('chai').should()
 
 describe('output-files', () => {

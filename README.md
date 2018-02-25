@@ -6,6 +6,11 @@
 
 convert from puppeteer's coverage output to a format that can be used by istanbul reports
 
+## Integrating with Puppeteer
+
+
+
+
 ## Plan of Action
 
 1. build a shim that lets us run arbitrary JavaScript code in puppeteer (

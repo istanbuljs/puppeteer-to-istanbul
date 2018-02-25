@@ -31,9 +31,7 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
     const coverage = [...jsCoverage, ...cssCoverage];
     pti.write(jsCoverage)
     ```
-    
-This will run Istanbul's HTML Reporting through [nyc][nyc] based on the output of the converted `your_puppeteer_coverage.json`.
-    
+        
 ### to run istanbul reports
 
 1. install nyc, `npm i nyc`.

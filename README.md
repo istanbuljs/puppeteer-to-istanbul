@@ -34,11 +34,11 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
         
 ### to run istanbul reports
 
-1. install nyc, `npm i nyc`.
+1. install nyc, `npm i nyc -g`.
 2. use nyc's report functionality:
 
     ```bash
-    npm run report --reporter=html
+    nyc report --reporter=html
     ```
     
 _puppeteer-to-istanbul_ outputs temporary files in a format that can be

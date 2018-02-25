@@ -26,22 +26,10 @@ describe('puppeteer-to-v8', () => {
     firstV8Range.count.should.eql(1)
   })
 
-  // use mkdirp:
-  // mkdirp.sync('./coverage/js')
-  it('rewrites filename to be relative to ./coverage/js', () => {
-    // const fixture = require('./fixtures/block-else-not-covered')
-  })
-
   // look at the uuid library:
   // uuid.v4()
   it('generates scriptId', () => {
     // Ensures that the scriptId is of type 'number'
     (typeof v8Coverage[0].scriptId).should.eql('number')
-  })
-
-  // for this test case, make sure we cover what happens
-  // if there are multiple script tags in the same HTML file.
-  it('handles coverage output for inline JavaScript', () => {
-
   })
 })

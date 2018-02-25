@@ -1,4 +1,3 @@
-const fs = require('fs')
 const args = require('yargs').demandCommand(1).argv
 const coverageInfo = require(args._[0])
 

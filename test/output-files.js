@@ -22,7 +22,7 @@ describe('puppeteer-to-v8', () => {
     it('handle multiple files with same name, and replace in json', () => {
       // Input from the fixture should be JSONified already
       const fixture = require('./fixtures/function-coverage-full-duplicate.json')
-      const outputFiles = OutputFiles(fixture).coverageInfo
+      const outputFiles = OutputFiles(fixture).output()
 
       outputFiles[0].url.should.eql(fixture[0].url)
       outputFiles[1].url.should.eql(fixture[0].url.replace('.js', '-1.js'))

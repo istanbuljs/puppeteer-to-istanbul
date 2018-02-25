@@ -1,30 +1,30 @@
 [
   {
-    "url": "file:////home/viktor/Documents/HackIllinois2018/puppeteer-to-istanbul/test/fixtures/block-else-not-covered.json",
+    "url": "file:////home/viktor/Documents/HackIllinois2018/puppeteer-to-istanbul/test/sample_js/block-else-not-covered.js",
     "ranges": [
       {
         "start": 0,
-        "end": 336
+        "end": 44
       }
     ],
-    "text": "[\n  {\n    \"url\": \"file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/block-else-not-covered.js\",\n    \"ranges\": [\n      {\n        \"start\": 0,\n        \"end\": 44\n      }\n    ],\n    \"text\": \"if (true) {\\n  console.info('hello world!')\\n} else {\\n  function fib () {\\n    return 'i am the fibonacci sequence'\\n  }\\n}\"\n  }\n]"
+    "text": "if (true) {\n  console.info('hello world!')\n} else {\n  function fib () {\n    return 'i am the fibonacci sequence'\n  }\n}"
   },
   {
     "url": "file:///tmp/puppeteerTemp.html",
     "ranges": [
       {
         "start": 0,
-        "end": 59
+        "end": 55
       },
       {
-        "start": 66,
-        "end": 74
+        "start": 60,
+        "end": 66
       },
       {
-        "start": 121,
-        "end": 140
+        "start": 109,
+        "end": 126
       }
     ],
-    "text": "\n      function c(num1, num2) {\n        return num2 * num1;\n      }\n      function d(num3) {\n        return num3;\n      }\n      c(4,3);\n    "
+    "text": "\n    function c(num1, num2) {\n      return num2 * num1;\n    }\n    function d(num3) {\n      return num3;\n    }\n    c(4,3);\n    "
   }
 ]

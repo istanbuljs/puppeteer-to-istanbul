@@ -1,0 +1,38 @@
+[
+  {
+    "url": "file:///C:/istanbul-puppeteer/puppeteer-to-istanbul/test/sample_js/function-coverage-100.js",
+    "ranges": [
+      {
+        "start": 0,
+        "end": 47
+      },
+      {
+        "start": 49,
+        "end": 90
+      },
+      {
+        "start": 92,
+        "end": 112
+      }
+    ],
+    "text": "function a (num1, num2) {\r\n  return num1 + num2\r\n}\r\n\r\nfunction b (num) {\r\n  return num + 1\r\n}\r\n\r\na(1, 2)\r\nb(3)\r\n"
+  },
+  {
+    "url": "file:///C:/istanbul-puppeteer/puppeteer-to-istanbul/test/sample_js/function-coverage-100.js",
+    "ranges": [
+      {
+        "start": 0,
+        "end": 47
+      },
+      {
+        "start": 49,
+        "end": 90
+      },
+      {
+        "start": 92,
+        "end": 112
+      }
+    ],
+    "text": "function a (num1, num2) {\r\n  return num1 + num2\r\n}\r\n\r\nfunction b (num) {\r\n  return num + 1\r\n}\r\n\r\na(1, 2)\r\nb(3)\r\n"
+  }
+]

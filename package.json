@@ -35,6 +35,7 @@
     "standard-version": "^4.3.0"
   },
   "dependencies": {
+    "v8-to-istanbul": "^1.2.0",
     "yargs": "^11.0.0"
   },
   "standard": {

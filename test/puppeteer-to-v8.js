@@ -16,7 +16,14 @@ describe('puppeteer-to-v8', () => {
 
   it('translates ranges into v8 format', () => {
     // V8 coverage has ranges on a functions object, so check for that
-    v8Coverage[0].functions.ranges.should.eql(fixture[0].ranges)
+    let firstV8Range = v8Coverage[0].functions[0].ranges[0]
+    let firstFixtureRange = fixture[0].ranges[0]
+
+    // The V8 range object has a few transformations, in particular
+    // start -> startOffset, end -> endOffset and count = 1 being added
+    firstV8Range.startOffset.should.eql(firstFixtureRange.start)
+    firstV8Range.endOffset.should.eql(firstFixtureRange.end)
+    firstV8Range.count.should.eql(1)
   })
 
   // use mkdirp:

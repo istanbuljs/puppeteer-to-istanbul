@@ -8,7 +8,7 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
 
 ## Usage
 
-### to output coverage is Istanbul format with puppeteer
+### to output coverage in Istanbul format with puppeteer
 
 1. install _puppeteer-to-istanbul_, `npm i puppeteer-to-istanbul`.
 2. run your code in puppeteer with coverage enabled:

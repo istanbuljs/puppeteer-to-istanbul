@@ -19,6 +19,13 @@ This will run Istanbul's HTML Reporting through [nyc][nyc] based on the output o
 
 To get a JSON output of your Puppeteer coverage, take a look at [this Puppeteer example](https://github.com/GoogleChrome/puppeteer/blob/v1.1.0/docs/api.md#class-coverage) of pulling coverage, and simply write the `jsCoverage` object out to a JSON file.
 
+## contributing
+
+If you see an issue with Puppeteer to Istanbul, please open an issue! If you want to help improve Puppeteer to Istanbul, please fork the repository and open a pull request with your changes.
+
+Make sure to review our [contributing guide][contributing]
+
 [coveralls]: https://github.com/GoogleChrome/puppeteer
 [istanbul]: https://github.com/istanbuljs/istanbuljs
 [nyc]: https://github.com/istanbuljs/nyc
+[contributing]: contributing.md

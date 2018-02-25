@@ -48,6 +48,14 @@ describe('puppeteer-to-v8', () => {
       coverageInfo[1].url.should.include('puppeteerTemp-inline.js')
     })
 
+    it('appropriately handles two cases of inline JavaScript', () => {
+      const fixture = require('./fixtures/two-inline.json')
+      const coverageInfo = OutputFiles(fixture).output()
+
+      coverageInfo[0].url.should.include('puppeteerTemp-inline.js')
+      coverageInfo[1].url.should.include('puppeteerTemp-inline-1.js')
+    })
+
     after(cleanupCoverage)
 
     function cleanupCoverage () {

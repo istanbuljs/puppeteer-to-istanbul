@@ -55,11 +55,11 @@ describe('puppeteer-to-v8', () => {
     }
 
     // Takes in a script and rewrites it to the path we expect in /coverage/js
-    function movedUrl(url) {
-      let splitUrl = url.split('/');
+    function movedUrl (url) {
+      let splitUrl = url.split('/')
 
       // Prepend the folder to the filename
-      return './coverage/js/' + splitUrl[splitUrl.length - 1];
+      return './coverage/js/' + splitUrl[splitUrl.length - 1]
     }
   })
 })

@@ -10,26 +10,32 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
 
 ### To Output Coverage in Istanbul Format with Puppeteer
 
-1. install _puppeteer-to-istanbul_, `npm i puppeteer-to-istanbul`.
-2. run your code in puppeteer with coverage enabled:
+1. install _puppeteer_, `npm i puppeteer`.
+2. install _puppeteer-to-istanbul_, `npm i puppeteer-to-istanbul`.
+3. run your code in puppeteer with coverage enabled:
 
     ```js
-    const pti = require('puppeteer-to-istanbul')
+    (async () => {
+      const pti = require('puppeteer-to-istanbul')
+      const puppeteer = require('puppeteer')
+      const browser = await puppeteer.launch()
+      const page = await browser.newPage()
 
-    // Enable both JavaScript and CSS coverage
-    await Promise.all([
-      page.coverage.startJSCoverage(),
-      page.coverage.startCSSCoverage()
-    ]);
-    // Navigate to page
-    await page.goto('https://example.com');
-    // Disable both JavaScript and CSS coverage
-    const [jsCoverage, cssCoverage] = await Promise.all([
-      page.coverage.stopJSCoverage(),
-      page.coverage.stopCSSCoverage(),
-    ]);
-    const coverage = [...jsCoverage, ...cssCoverage];
-    pti.write(jsCoverage)
+      // Enable both JavaScript and CSS coverage
+      await Promise.all([
+        page.coverage.startJSCoverage(),
+        page.coverage.startCSSCoverage()
+      ]);
+      // Navigate to page
+      await page.goto('https://www.google.com');
+      // Disable both JavaScript and CSS coverage
+      const [jsCoverage, cssCoverage] = await Promise.all([
+        page.coverage.stopJSCoverage(),
+        page.coverage.stopCSSCoverage(),
+      ]);
+      pti.write(jsCoverage)
+      await browser.close()
+    })()
     ```
         
 ### To Run Istanbul Reports

@@ -46,10 +46,6 @@ consumed by nyc.
 
 see [istanbul](https://github.com/istanbuljs/istanbuljs/tree/master/packages/istanbul-reports/lib) for a list of possible reporters.
 
-## Project Website
-
-To learn about the conversion process between Puppeteer to Istanbul, and everything in between, visit the project's [website](https://hack-illinois-team-istanbul.herokuapp.com/).
-
 ## Contributing
 
 If you see an issue with Puppeteer to Istanbul, please open an issue! If you want to help improve Puppeteer to Istanbul, please fork the repository and open a pull request with your changes.

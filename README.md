@@ -37,6 +37,7 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
       await browser.close()
     })()
     ```
+
 ### To Run Istanbul Reports
 
 1. install nyc, `npm i nyc -g`.

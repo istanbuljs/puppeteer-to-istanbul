@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.2"></a>
+## [1.2.2](https://github.com/istanbuljs/puppeteer-to-istanbul/compare/v1.2.1...v1.2.2) (2018-03-03)
+
+
+### Bug Fixes
+
+* we need to create the .nyc_output folder if it doesn't exist ([17c9e69](https://github.com/istanbuljs/puppeteer-to-istanbul/commit/17c9e69))
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/istanbuljs/puppeteer-to-istanbul/compare/v1.2.0...v1.2.1) (2018-03-01)
 

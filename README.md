@@ -54,6 +54,15 @@ see [istanbul](https://github.com/istanbuljs/istanbuljs/tree/master/packages/ist
 
 ## Contributing
 
+The best way to get started with Puppeteer to Istanbul is by installing it for yourself and running tests.
+PTI requires the most recent build of __v8toistanbul__ to function properly, so start by running `npm install`. 
+
+Next, ensure that all tests are passing before continuing by running `npm test` (or equivalently, `npm t`). This should generate a report that gives the same coverage as seen on this README. 
+
+Note that a majority of the tests run against pre-generated fixtures, or JSON snippets, that come from Puppeteer's raw output. These are located in the `\test\fixtures` area. To generate one of your own, write or use one of the scripts in the test area `test\sample_js`, and run `bin/puppeteer-js-runner.js` through node, like so: 
+
+`node bin/puppeteer-js-runner.js --file=/test/sample_js/sample2.js`.
+
 If you see an issue with Puppeteer to Istanbul, please open an issue! If you want to help improve Puppeteer to Istanbul, please fork the repository and open a pull request with your changes.
 
 Make sure to review our [contributing guide][contributing] for specific guidelines on contributing.

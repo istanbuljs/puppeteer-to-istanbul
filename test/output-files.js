@@ -59,6 +59,16 @@ describe('output-files', () => {
     coverageInfo[1].url.should.include('puppeteerTemp-inline-1.js')
   })
 
+  it('appropriately handles es6 modules', () => {
+    const fixture = require('./fixtures/es6-modules.json')
+    const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
+
+    coverageInfo[0].url.should.include('js/index.js')
+    coverageInfo[1].url.should.include('js/utils/doc_ready.js')
+    coverageInfo[2].url.should.include('js/models/record.js')
+    coverageInfo[3].url.should.include('js/views/record.js')
+  })
+
   function cleanupCoverage () {
     rimraf.sync(storagePathTop)
   }

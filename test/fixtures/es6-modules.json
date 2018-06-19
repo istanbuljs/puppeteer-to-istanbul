@@ -10,7 +10,7 @@
     "text": "import docReady from \"./utils/doc_ready.js\";\nimport Record from \"./models/record.js\";\nimport RecordView from \"./views/record.js\";\n\ndocReady(() => {\n  let record = new Record(3, 4);\n  let recordView = new RecordView(record);\n  document.body.appendChild(recordView.render())\n});\n"
   },
   {
-    "url": "http://localhost:9000/js/utils/doc_ready.js",
+    "url": "http://localhost/js/utils/doc_ready.js",
     "ranges": [
       {
         "start": 0,

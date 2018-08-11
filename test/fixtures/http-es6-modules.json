@@ -1,0 +1,50 @@
+[
+  {
+    "url": "http://localhost:9000/js/index.js",
+    "ranges": [
+      {
+        "start": 0,
+        "end": 277
+      }
+    ],
+    "text": "import docReady from \"./utils/doc_ready.js\";\nimport Record from \"./models/record.js\";\nimport RecordView from \"./views/record.js\";\n\ndocReady(() => {\n  let record = new Record(3, 4);\n  let recordView = new RecordView(record);\n  document.body.appendChild(recordView.render())\n});\n"
+  },
+  {
+    "url": "http://localhost/js/utils/doc_ready.js",
+    "ranges": [
+      {
+        "start": 0,
+        "end": 80
+      },
+      {
+        "start": 146,
+        "end": 150
+      }
+    ],
+    "text": "export default (fn) => {\n  if (document.readyState != \"loading\") {\n    fn();\n  } else {\n    document.addEventListener(\"DOMContentLoaded\", fn);\n  }\n};\n"
+  },
+  {
+    "url": "http://localhost:9000/js/models/record.js",
+    "ranges": [
+      {
+        "start": 0,
+        "end": 90
+      }
+    ],
+    "text": "export default class Record {\n  constructor(x, y) {\n    this.x = x;\n    this.y = y;\n  }\n}\n"
+  },
+  {
+    "url": "http://localhost:9000/js/views/record.js",
+    "ranges": [
+      {
+        "start": 0,
+        "end": 298
+      },
+      {
+        "start": 301,
+        "end": 304
+      }
+    ],
+    "text": "export default class RecordView {\n  constructor(record) {\n    this.record = record\n  }\n\n  render() {\n    this.elem = document.createElement(\"div\");\n    this.elem.appendChild(\n      document.createTextNode(\n        \"x: \" + this.record.x + \"; y: \" + this.record.y\n      )\n    );\n    return this.elem;\n  }\n}"
+  }
+]

@@ -33,10 +33,17 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
         page.coverage.stopJSCoverage(),
         page.coverage.stopCSSCoverage(),
       ]);
-      pti.write(jsCoverage)
+      pti.write(jsCoverage /* , options */)
       await browser.close()
     })()
     ```
+
+#### options
+
+| option     | Description                                                                                                      | Default Value            |
+| :--------- | :--------------------------------------------------------------------------------------------------------------- | :----------------------- |
+| outputFile | Output coverage will be saved at this file path (can be relative to project root dir or an absolute path)        | `./.nyc_output/out.json` |
+| filter     | Function to filter coverage files. Coverage will only be saved if it returns `true` for give filePath | `(filePath) => true`     |
 
 ### To Run Istanbul Reports
 

@@ -1,19 +1,55 @@
-// /* globals describe, it, before */
+/* globals describe, it */
 
-// var PuppeteerToIstanbul = require('../lib/puppeteer-to-istanbul')()
+const fs = require('fs')
 
-// require('chai').should()
+const PuppeteerToIstanbul = require('../lib/puppeteer-to-istanbul')
 
-// describe('puppeteer-to-istanbul', () => {
+require('chai').should()
 
-//   const fixture = require('./fixtures/function-coverage-missing.json')
+describe('puppeteer-to-istanbul', () => {
+  const fixture = require('./fixtures/multiple-files.json')
 
-//   before(() => {
+  it('writes coverage to default filePath', () => {
+    const filePath = new PuppeteerToIstanbul(fixture).writeIstanbulFormat()
 
-//   })
+    filePath.should.eq('./.nyc_output/out.json')
+    fs.existsSync(filePath).should.eq(true)
 
-//   it('translates ranges into lines for istanbul', () => {
+    fs.unlinkSync(filePath)
+  })
 
-//   })
+  it('writes coverage to given filePath', () => {
+    const filePath = new PuppeteerToIstanbul(fixture).writeIstanbulFormat({ outputFile: './.nyc_output/custom.json' })
 
-// })
+    filePath.should.eq('./.nyc_output/custom.json')
+    fs.existsSync(filePath).should.eq(true)
+
+    fs.unlinkSync(filePath)
+  })
+
+  it("doesn't filter any files by default", () => {
+    const filePath = new PuppeteerToIstanbul(fixture).writeIstanbulFormat()
+
+    filePath.should.eq('./.nyc_output/out.json')
+
+    const savedJson = JSON.parse(fs.readFileSync(filePath))
+
+    Object.keys(savedJson).length.should.eq(4)
+
+    fs.unlinkSync(filePath)
+  })
+
+  it('applies filter when given', () => {
+    const filePath = new PuppeteerToIstanbul(fixture).writeIstanbulFormat({
+      filter: (jsFile) => jsFile.indexOf('record') === -1
+    })
+
+    filePath.should.eq('./.nyc_output/out.json')
+
+    const savedJson = JSON.parse(fs.readFileSync(filePath))
+
+    Object.keys(savedJson).length.should.eq(2)
+
+    fs.unlinkSync(filePath)
+  })
+})

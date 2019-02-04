@@ -1,8 +1,8 @@
 const PuppeteerToIstanbul = require('./lib/puppeteer-to-istanbul')
 
 module.exports = {
-  write: (puppeteerFormat) => {
+  write: (puppeteerFormat, options) => {
     const pti = PuppeteerToIstanbul(puppeteerFormat)
-    pti.writeIstanbulFormat()
+    return pti.writeIstanbulFormat(options)
   }
 }

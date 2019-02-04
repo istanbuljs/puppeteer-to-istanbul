@@ -29,9 +29,6 @@ describe('puppeteer-to-istanbul', () => {
 
   it("doesn't filter any files by default", () => {
     const filePath = new PuppeteerToIstanbul(fixture).writeIstanbulFormat()
-
-    filePath.should.eq('./.nyc_output/out.json')
-
     const savedJson = JSON.parse(fs.readFileSync(filePath))
 
     Object.keys(savedJson).length.should.eq(4)
@@ -43,9 +40,6 @@ describe('puppeteer-to-istanbul', () => {
     const filePath = new PuppeteerToIstanbul(fixture).writeIstanbulFormat({
       filter: (jsFile) => jsFile.indexOf('record') === -1
     })
-
-    filePath.should.eq('./.nyc_output/out.json')
-
     const savedJson = JSON.parse(fs.readFileSync(filePath))
 
     Object.keys(savedJson).length.should.eq(2)

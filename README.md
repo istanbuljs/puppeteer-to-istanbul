@@ -33,7 +33,7 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
         page.coverage.stopJSCoverage(),
         page.coverage.stopCSSCoverage(),
       ]);
-      pti.write(jsCoverage)
+      pti.write([...jsCoverage, ...cssCoverage])
       await browser.close()
     })()
     ```

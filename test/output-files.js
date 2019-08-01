@@ -70,6 +70,16 @@ describe('output-files', () => {
     coverageInfo[3].url.should.include('js/views/record.js')
   })
 
+  it('maintains original url in output', () => {
+    const fixture = require('./fixtures/http-es6-modules.json')
+    const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
+
+    coverageInfo[0].originalUrl.should.equal(fixture[0].url)
+    coverageInfo[1].originalUrl.should.equal(fixture[1].url)
+    coverageInfo[2].originalUrl.should.equal(fixture[2].url)
+    coverageInfo[3].originalUrl.should.equal(fixture[3].url)
+  })
+
   function cleanupCoverage () {
     rimraf.sync(storagePathTop)
   }

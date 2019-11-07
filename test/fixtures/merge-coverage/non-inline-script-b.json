@@ -1,0 +1,30 @@
+[
+    {
+        "url": "http://localhost:9000/js/index.js",
+        "ranges": [
+            {
+                "start": 60,
+                "end": 66
+            },
+            {
+                "start": 109,
+                "end": 126
+            }
+        ],
+        "text": "\n      function c(num1, num2) {\n        return num2 * num1;\n      }\n      function d(num3) {\n        return num3;\n      }\n      c(4,3);\n    "
+    },
+    {
+        "url": "file:///tmp/puppeteerTemp.html",
+        "ranges": [
+          {
+            "start": 0,
+            "end": 68
+          },
+          {
+            "start": 73,
+            "end": 93
+          }
+        ],
+        "text": "\n    function e(num4, num5, num6) {\n      return num4 * num5 - num6;\n    }\n    e(3,5,6);\n    "
+      }
+]

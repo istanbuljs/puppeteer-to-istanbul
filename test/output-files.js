@@ -34,7 +34,7 @@ describe('output-files', () => {
 
     coverageInfo[0].url.should.eql(movedUrl(fixture[0].url))
     // It's not inline script and has the same url, so we could know both of them are same file.
-    // The is no need to create `-1.js` file.
+    // There is no need to create `-1.js` file.
     // In case multiple page instance load the same js file.
     coverageInfo[1].url.should.eql(movedUrl(fixture[0].url))
   })

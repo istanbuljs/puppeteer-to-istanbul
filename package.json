@@ -4,13 +4,12 @@
   "description": "convert from puppeteer's coverage output to a format that can be used by istanbul reports",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --all mocha test/*.js",
-    "posttest": "standard",
-    "release": "standard-version"
+    "test": "c8 --all mocha test/*.js",
+    "posttest": "standard"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/istanbuljs/puppeteer-to-istanbul.git"
+    "url": "https://github.com/istanbuljs/puppeteer-to-istanbul.git"
   },
   "keywords": [
     "istanbul",
@@ -25,22 +24,26 @@
   },
   "homepage": "https://github.com/istanbuljs/puppeteer-to-istanbul#readme",
   "devDependencies": {
-    "chai": "^4.1.2",
-    "coveralls": "^3.0.0",
-    "mocha": "^5.0.1",
-    "nyc": "^11.4.1",
-    "puppeteer": "^1.1.1",
+    "c8": "^7.1.0",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.11",
+    "mocha": "^7.1.1",
+    "puppeteer": "^2.1.1",
     "rimraf": "^3.0.0",
-    "standard": "^11.0.0",
-    "standard-version": "^4.3.0"
+    "standard": "^11.0.0"
   },
   "dependencies": {
-    "clone": "^2.1.1",
-    "mkdirp": "^0.5.1",
-    "v8-to-istanbul": "^1.2.0",
-    "yargs": "^11.0.0"
+    "clone": "^2.1.2",
+    "mkdirp": "^1.0.4",
+    "v8-to-istanbul": "^1.2.1",
+    "yargs": "^15.3.1"
   },
   "standard": {
     "ignore": "test/sample_js"
+  },
+  "c8": {
+    "include": [
+      "**/lib/*.js"
+    ]
   }
 }

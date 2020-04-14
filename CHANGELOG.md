@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 <a name="1.2.2"></a>
+## [1.3.0](https://www.github.com/istanbuljs/puppeteer-to-istanbul/compare/v1.2.2...v1.3.0) (2020-04-14)
+
+
+### Features
+
+* add support for complete path reporting on files with http(s) protocol ([#17](https://www.github.com/istanbuljs/puppeteer-to-istanbul/issues/17)) ([149716b](https://www.github.com/istanbuljs/puppeteer-to-istanbul/commit/149716b5323b7b1025e43c17e577744601528f72))
+* include original url in final output. ([#34](https://www.github.com/istanbuljs/puppeteer-to-istanbul/issues/34)) ([dec48a2](https://www.github.com/istanbuljs/puppeteer-to-istanbul/commit/dec48a25d0e2145ad44a485d591b1b58d1039091))
+
+
+### Bug Fixes
+
+* do not overwrite coverage after each test suite ([#42](https://www.github.com/istanbuljs/puppeteer-to-istanbul/issues/42)) ([848aa76](https://www.github.com/istanbuljs/puppeteer-to-istanbul/commit/848aa76533ce63f09a319d377b84163151505a5e))
+* JSON being output was not valid ([de9109c](https://www.github.com/istanbuljs/puppeteer-to-istanbul/commit/de9109c794523eb8924ef24770503908650cc952))
+* write to disk incrementally  ([#40](https://www.github.com/istanbuljs/puppeteer-to-istanbul/issues/40)) ([c57bd74](https://www.github.com/istanbuljs/puppeteer-to-istanbul/commit/c57bd741534813a7b42c8f300ddb61ef42086ef1))
+
 ## [1.2.2](https://github.com/istanbuljs/puppeteer-to-istanbul/compare/v1.2.1...v1.2.2) (2018-03-03)
 
 

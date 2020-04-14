@@ -3,4 +3,4 @@ node_js:
   - "8"
   - "node"
 after_success:
-  - nyc report --reporter=text-lcov | coveralls
+  - c8 report --reporter=text-lcov | coveralls

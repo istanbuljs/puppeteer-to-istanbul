@@ -1,6 +1,6 @@
 {
   "name": "puppeteer-to-istanbul",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "convert from puppeteer's coverage output to a format that can be used by istanbul reports",
   "main": "index.js",
   "scripts": {

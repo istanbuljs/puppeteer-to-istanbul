@@ -10,8 +10,8 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
 
 ### To Output Coverage in Istanbul Format with Puppeteer
 
-1. install _puppeteer_, `npm i puppeteer --save`.
-2. install _puppeteer-to-istanbul_, `npm i puppeteer-to-istanbul --save`.
+1. install _puppeteer_, `npm i -D puppeteer`.
+2. install _puppeteer-to-istanbul_, `npm i -D puppeteer-to-istanbul`.
 3. run your code in puppeteer with coverage enabled:
 
     ```js
@@ -38,7 +38,7 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
     })()
     ```
 
-### To Run Istanbul Reports
+### To Check Istanbul Reports
 
 1. install nyc, `npm i nyc -g`.
 2. use nyc's report functionality:

@@ -33,15 +33,21 @@ describe('output-files', () => {
     coverageInfo[1].url.should.not.eql(fixture[1].url)
 
     coverageInfo[0].url.should.eql(movedUrl(fixture[0].url))
-    coverageInfo[1].url.should.eql(movedUrl(fixture[0].url.replace('.js', '-1.js')))
+    // It's not inline script and has the same url, so we could know both of them are same file.
+    // There is no need to create `-1.js` file.
+    // In case multiple page instance load the same js file.
+    coverageInfo[1].url.should.eql(movedUrl(fixture[0].url))
   })
 
   // call it something like indexHTML-inline-1.js
   it('appropriately handles only inline JavaScript', () => {
     const fixture = require('./fixtures/inline-script-coverage.json')
+    // Reset iterator
+    OutputFiles.resetIterator()
     const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
 
     coverageInfo[0].url.should.include('puppeteerTemp-inline.js')
+    coverageInfo[1].url.should.include('puppeteerTemp-inline-1.js')
   })
 
   it('appropriately handles inline and external JavaScript', () => {
@@ -54,6 +60,8 @@ describe('output-files', () => {
 
   it('appropriately handles two cases of inline JavaScript', () => {
     const fixture = require('./fixtures/two-inline.json')
+    // Reset iterator
+    OutputFiles.resetIterator()
     const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
 
     coverageInfo[0].url.should.include('puppeteerTemp-inline.js')

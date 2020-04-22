@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/istanbuljs/puppeteer-to-istanbul.git"
+    "url": "https://github.com/obihill/puppeteer-to-istanbul.git"
   },
   "keywords": [
     "istanbul",

@@ -35,7 +35,7 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
         page.coverage.stopJSCoverage(),
         page.coverage.stopCSSCoverage(),
       ]);
-      var options_obj = {output_dir: './.nyc_output'};
+      const options_obj = {output_dir: './.nyc_output'}
       pti.write([...jsCoverage, ...cssCoverage], options_obj)
       await browser.close()
     })()
@@ -44,15 +44,15 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
 
 ### Options
 
-puppeteer-to-istanbul-extra provides options for use with the `write` method. 
+*Puppeteer-to-istanbul-extra* provides options for use with the `write` method. 
 
-Below are the list of available options:
+Here are the available options:
 
 | Option name | Description | Type | Default |
 | ----------- | ----------- | ---- | ------- |
-| `output_dir` | DIrectory to output coverage information | `String` | `./.nyc_output` |
-| `tamper_html` | Will append a suffix to the file name if `html` appears within it. Setting this option to false will disable this functionality  | `Boolean` | `false` |
-| `overwrite` | List of extensions that nyc should attempt to handle in addition to `.js` | `Boolean` | `true` |
+| `output_dir` | Directory to output coverage information | `String` | `./.nyc_output` |
+| `tamper_html` | Will append a suffix to the file name if `html` appears within it. Setting this option to false will disable this functionality  | `Boolean` | `true` |
+| `overwrite` | Define overwrite characteristics for coverage files. If true, will always overwrite existing files. If false, will append suffix to saved file name if existing file exists | `Boolean` | `false` |
 
 
 ### To Check Istanbul Reports

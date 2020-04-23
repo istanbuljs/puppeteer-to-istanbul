@@ -51,8 +51,7 @@ Here are the available options:
 | Option name | Description | Type | Default |
 | ----------- | ----------- | ---- | ------- |
 | `output_dir` | Directory to output coverage information | `String` | `./.nyc_output` |
-| `tamper_html` | Will append a suffix to the file name if `html` appears within it. Setting this option to false will disable this functionality  | `Boolean` | `true` |
-| `overwrite` | Define overwrite characteristics for coverage files. If true, will always overwrite existing files. If false, will append suffix to saved file name if existing file exists | `Boolean` | `false` |
+| `backup` | Define backup characteristics for coverage files. If true, will backup existing files. | `Boolean` | `false` |
 
 
 ### To Check Istanbul Reports

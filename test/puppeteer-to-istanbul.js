@@ -7,7 +7,7 @@ const OutputFiles = require('../lib/output-files')
 var PuppeteerToIstanbul = require('../lib/puppeteer-to-istanbul')
 
 describe('puppeteer-to-istanbul', () => {
-  it('outputs a valid out.json file', () => {
+  it('outputs a valid out.json file, to the default location', () => {
     const fixture = require('./fixtures/two-inline.json')
     const pti = PuppeteerToIstanbul(fixture)
     pti.writeIstanbulFormat()
@@ -15,6 +15,16 @@ describe('puppeteer-to-istanbul', () => {
     const jsonObject = JSON.parse(content)
     should.exist(jsonObject)
     fs.unlinkSync('.nyc_output/out.json')
+  })
+
+  it('outputs a valid out.json file, in the custom location', () => {
+    const fixture = require('./fixtures/two-inline.json')
+    const pti = PuppeteerToIstanbul(fixture, { storagePath: '.nyc_output/custom' })
+    pti.writeIstanbulFormat()
+    const content = fs.readFileSync('.nyc_output/custom/out.json', 'utf8')
+    const jsonObject = JSON.parse(content)
+    should.exist(jsonObject)
+    fs.unlinkSync('.nyc_output/custom/out.json')
   })
 
   it('correctly sets coverage info', () => {

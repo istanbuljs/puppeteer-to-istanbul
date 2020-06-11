@@ -7,20 +7,20 @@ const OutputFiles = require('../lib/output-files')
 var PuppeteerToIstanbul = require('../lib/puppeteer-to-istanbul')
 
 describe('puppeteer-to-istanbul', () => {
-  it('outputs a valid out.json file, to the default location', () => {
+  it('outputs a valid out.json file, to the default location', async () => {
     const fixture = require('./fixtures/two-inline.json')
     const pti = PuppeteerToIstanbul(fixture)
-    pti.writeIstanbulFormat()
+    await pti.writeIstanbulFormat()
     const content = fs.readFileSync('.nyc_output/out.json', 'utf8')
     const jsonObject = JSON.parse(content)
     should.exist(jsonObject)
     fs.unlinkSync('.nyc_output/out.json')
   })
 
-  it('outputs a valid out.json file, in the custom location', () => {
+  it('outputs a valid out.json file, in the custom location', async () => {
     const fixture = require('./fixtures/two-inline.json')
     const pti = PuppeteerToIstanbul(fixture, { storagePath: '.nyc_output/custom' })
-    pti.writeIstanbulFormat()
+    await pti.writeIstanbulFormat()
     const content = fs.readFileSync('.nyc_output/custom/out.json', 'utf8')
     const jsonObject = JSON.parse(content)
     should.exist(jsonObject)
@@ -34,24 +34,24 @@ describe('puppeteer-to-istanbul', () => {
     pti.coverageInfo.should.eql(fixture)
   })
 
-  it('merge non-inline script coverage records', () => {
+  it('merge non-inline script coverage records', async () => {
     OutputFiles.resetIterator()
     PuppeteerToIstanbul.resetJSONPart()
 
     const fixtureNonInlineScriptA = require('./fixtures/merge-coverage/non-inline-script-a.json')
     const fixtureNonInlineScriptB = require('./fixtures/merge-coverage/non-inline-script-b.json')
     const ptiA = PuppeteerToIstanbul(fixtureNonInlineScriptA)
-    ptiA.writeIstanbulFormat()
+    await ptiA.writeIstanbulFormat()
     const jsonPartA = PuppeteerToIstanbul.getJSONPart()
     PuppeteerToIstanbul.resetJSONPart()
     const ptiB = PuppeteerToIstanbul(fixtureNonInlineScriptB)
-    ptiB.writeIstanbulFormat()
+    await ptiB.writeIstanbulFormat()
     const jsonPartB = PuppeteerToIstanbul.getJSONPart()
     PuppeteerToIstanbul.resetJSONPart()
     OutputFiles.resetIterator()
     PuppeteerToIstanbul.resetJSONPart()
     const pti = PuppeteerToIstanbul(fixtureNonInlineScriptA.concat(fixtureNonInlineScriptB))
-    pti.writeIstanbulFormat()
+    await pti.writeIstanbulFormat()
     const jsonPart = PuppeteerToIstanbul.getJSONPart()
     const keys = Object.keys(jsonPart)
 

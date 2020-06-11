@@ -33,7 +33,7 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
         page.coverage.stopJSCoverage(),
         page.coverage.stopCSSCoverage(),
       ]);
-      pti.write([...jsCoverage, ...cssCoverage], { includeHostname: true , storagePath: './.nyc_output' })
+      await pti.write([...jsCoverage, ...cssCoverage], { includeHostname: true , storagePath: './.nyc_output' })
       await browser.close()
     })()
     ```

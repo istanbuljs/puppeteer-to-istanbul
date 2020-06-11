@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 <a name="1.2.2"></a>
+## [1.4.0](https://www.github.com/istanbuljs/puppeteer-to-istanbul/compare/v1.3.1...v1.4.0) (2020-06-11)
+
+
+### Features
+
+* allow a custom storagePath ([#56](https://www.github.com/istanbuljs/puppeteer-to-istanbul/issues/56)) ([eb1aabc](https://www.github.com/istanbuljs/puppeteer-to-istanbul/commit/eb1aabc705ed10bfc5010128eb0fbaf69c17f777))
+* allow the output file to not include the hostname ([#57](https://www.github.com/istanbuljs/puppeteer-to-istanbul/issues/57)) ([3a5b312](https://www.github.com/istanbuljs/puppeteer-to-istanbul/commit/3a5b312c0b02a9a2115a54ddd5095b3684257e78))
+
 ### [1.3.1](https://www.github.com/istanbuljs/puppeteer-to-istanbul/compare/v1.3.0...v1.3.1) (2020-05-11)
 
 

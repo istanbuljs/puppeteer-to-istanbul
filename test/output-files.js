@@ -79,6 +79,16 @@ describe('output-files', () => {
     coverageInfo[3].url.should.include('js/views/record.js')
   })
 
+  it('appropriately handles modules required via http/https, with hostName excluded', () => {
+    const fixture = require('./fixtures/http-es6-modules.json')
+    const coverageInfo = OutputFiles(fixture, { includeHostname: false }).getTransformedCoverage().map(info => ({...info, url: info.url.replace(/\\/g, '/')}))
+
+    coverageInfo[0].url.should.include('js/index.js')
+    coverageInfo[1].url.should.include('js/utils/doc_ready.js')
+    coverageInfo[2].url.should.include('js/models/record.js')
+    coverageInfo[3].url.should.include('js/views/record.js')
+  })
+
   it('maintains original url in output', () => {
     const fixture = require('./fixtures/http-es6-modules.json')
     const coverageInfo = OutputFiles(fixture).getTransformedCoverage()

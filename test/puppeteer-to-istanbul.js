@@ -27,6 +27,37 @@ describe('puppeteer-to-istanbul', () => {
     fs.unlinkSync('.nyc_output/custom/out.json')
   })
 
+  it('outputs a valid out.json file, with a custom path name', async () => {
+    const fixture = require('./fixtures/two-inline.json')
+
+    const ptiA = PuppeteerToIstanbul(fixture)
+    ptiA.writeIstanbulFormat()
+    const contentA = fs.readFileSync('.nyc_output/out.json', 'utf8')
+    const jsonObjectA = JSON.parse(contentA)
+    should.exist(jsonObjectA)
+    const keysA = Object.keys(jsonObjectA)
+    let firstKeyA = keysA[0]
+    if (firstKeyA.includes('\\')) firstKeyA = firstKeyA.replace(/\\/g, '/')
+    firstKeyA.should.include('.nyc_output/js/tmp/puppeteerTemp.htmlpuppeteerTemp-inline.js')
+    keysA[0].should.equal(jsonObjectA[keysA[0]].path)
+    fs.unlinkSync('.nyc_output/out.json')
+
+    PuppeteerToIstanbul.resetJSONPart()
+    OutputFiles.resetIterator()
+
+    const ptiB = PuppeteerToIstanbul(fixture, { transformPath: (path) => path.replace('.nyc_output', '.nyc_input') })
+    ptiB.writeIstanbulFormat()
+    const contentB = fs.readFileSync('.nyc_output/out.json', 'utf8')
+    const jsonObjectB = JSON.parse(contentB)
+    should.exist(jsonObjectB)
+    const keysB = Object.keys(jsonObjectB)
+    let firstKeyB = keysB[0]
+    if (firstKeyB.includes('\\')) firstKeyB = firstKeyB.replace(/\\/g, '/')
+    firstKeyB.should.include('.nyc_input/js/tmp/puppeteerTemp.htmlpuppeteerTemp-inline-1.js')
+    keysB[0].should.equal(jsonObjectB[keysB[0]].path)
+    fs.unlinkSync('.nyc_output/out.json')
+  })
+
   it('correctly sets coverage info', () => {
     const fixture = require('./fixtures/two-inline.json')
     const pti = PuppeteerToIstanbul(fixture)

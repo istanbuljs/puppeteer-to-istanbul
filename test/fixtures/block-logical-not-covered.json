@@ -15,6 +15,38 @@
         "end": 111
       }
     ],
-    "text": "const a = true\n\nif (false) {\n  console.info('hello world!')\n} else if (a || !a) {\n  console.info('i did run')\n} else {\n  console.info('i should not run')\n}"
+    "text": "const a = true\n\nif (false) {\n  console.info('hello world!')\n} else if (a || !a) {\n  console.info('i did run')\n} else {\n  console.info('i should not run')\n}",
+    "rawScriptCoverage": {
+      "scriptId": "4",
+      "url": "file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/block-logical-not-covered.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 155,
+              "count": 1
+            },
+            {
+              "startOffset": 27,
+              "endOffset": 61,
+              "count": 0
+            },
+            {
+              "startOffset": 73,
+              "endOffset": 78,
+              "count": 0
+            },
+            {
+              "startOffset": 111,
+              "endOffset": 155,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    }
   }
 ]

@@ -7,6 +7,28 @@
         "end": 44
       }
     ],
-    "text": "if (true) {\n  console.info('hello world!')\n} else {\n  function fib () {\n    return 'i am the fibonacci sequence'\n  }\n}"
+    "text": "if (true) {\n  console.info('hello world!')\n} else {\n  function fib () {\n    return 'i am the fibonacci sequence'\n  }\n}",
+    "rawScriptCoverage": {
+      "scriptId": "4",
+      "url": "file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/block-else-not-covered.js",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 118,
+              "count": 1
+            },
+            {
+              "startOffset": 44,
+              "endOffset": 118,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    }
   }
 ]

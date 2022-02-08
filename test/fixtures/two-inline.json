@@ -4,31 +4,90 @@
     "ranges": [
       {
         "start": 0,
-        "end": 55
+        "end": 74
       },
       {
-        "start": 60,
-        "end": 66
-      },
-      {
-        "start": 109,
-        "end": 126
+        "start": 121,
+        "end": 140
       }
     ],
-    "text": "\n    function c(num1, num2) {\n      return num2 * num1;\n    }\n    function d(num3) {\n      return num3;\n    }\n    c(4,3);\n    "
+    "text": "\n      function c(num1, num2) {\n        return num2 * num1;\n      }\n      function d(num3) {\n        return num3;\n      }\n      c(4,3);\n    ",
+    "rawScriptCoverage": {
+      "scriptId": "4",
+      "url": "file:///tmp/puppeteerTemp.html",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 140,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "c",
+          "ranges": [
+            {
+              "startOffset": 7,
+              "endOffset": 67,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "d",
+          "ranges": [
+            {
+              "startOffset": 74,
+              "endOffset": 121,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    }
   },
   {
     "url": "file:///tmp/puppeteerTemp.html",
     "ranges": [
       {
         "start": 0,
-        "end": 68
-      },
-      {
-        "start": 73,
-        "end": 93
+        "end": 101
       }
     ],
-    "text": "\n    function e(num4, num5, num6) {\n      return num4 * num5 - num6;\n    }\n    e(3,5,6);\n    "
+    "text": "\n      function e(num4, num5, num6) {\n        return num4 * num5 - num6;\n      }\n      e(3,5,6);\n    ",
+    "rawScriptCoverage": {
+      "scriptId": "5",
+      "url": "file:///tmp/puppeteerTemp.html",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 101,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "e",
+          "ranges": [
+            {
+              "startOffset": 7,
+              "endOffset": 80,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    }
   }
 ]

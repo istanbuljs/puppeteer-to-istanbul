@@ -29,7 +29,7 @@ async function outputPuppeteerCoverage (input, output) {
 
   // Enable both JavaScript and CSS coverage
   await Promise.all([
-    page.coverage.startJSCoverage(),
+    page.coverage.startJSCoverage({includeRawScriptCoverage: true}),
     page.coverage.startCSSCoverage()
   ])
 

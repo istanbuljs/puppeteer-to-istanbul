@@ -4,6 +4,10 @@
     "ranges": [
       {
         "start": 0,
+        "end": 46
+      },
+      {
+        "start": 47,
         "end": 50
       },
       {
@@ -11,45 +15,6 @@
         "end": 97
       }
     ],
-    "text": "function a (num1, num2) {\n  return num1 + num2\n}\n\nfunction b (num) {\n  return num + 1\n}\n\na(1, 2)\n",
-    "rawScriptCoverage": {
-      "scriptId": "4",
-      "url": "file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/function-coverage-missing-1.js",
-      "functions": [
-        {
-          "functionName": "",
-          "ranges": [
-            {
-              "startOffset": 0,
-              "endOffset": 97,
-              "count": 1
-            }
-          ],
-          "isBlockCoverage": true
-        },
-        {
-          "functionName": "a",
-          "ranges": [
-            {
-              "startOffset": 0,
-              "endOffset": 48,
-              "count": 1
-            }
-          ],
-          "isBlockCoverage": true
-        },
-        {
-          "functionName": "b",
-          "ranges": [
-            {
-              "startOffset": 50,
-              "endOffset": 87,
-              "count": 0
-            }
-          ],
-          "isBlockCoverage": false
-        }
-      ]
-    }
+    "text": "function a(num1, num2) {\n  return num1 + num2;\n}\n\nfunction b(num) {\n  return num + 1;\n}\n\na(1, 2);"
   }
 ]

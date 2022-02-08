@@ -4,97 +4,35 @@
     "ranges": [
       {
         "start": 0,
+        "end": 46
+      },
+      {
+        "start": 47,
+        "end": 85
+      },
+      {
+        "start": 86,
         "end": 102
       }
     ],
-    "text": "function a (num1, num2) {\n  return num1 + num2\n}\n\nfunction b (num) {\n  return num + 1\n}\n\na(1, 2)\nb(3)\n",
-    "rawScriptCoverage": {
-      "scriptId": "4",
-      "url": "file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/function-coverage-100.js",
-      "functions": [
-        {
-          "functionName": "",
-          "ranges": [
-            {
-              "startOffset": 0,
-              "endOffset": 102,
-              "count": 1
-            }
-          ],
-          "isBlockCoverage": true
-        },
-        {
-          "functionName": "a",
-          "ranges": [
-            {
-              "startOffset": 0,
-              "endOffset": 48,
-              "count": 1
-            }
-          ],
-          "isBlockCoverage": true
-        },
-        {
-          "functionName": "b",
-          "ranges": [
-            {
-              "startOffset": 50,
-              "endOffset": 87,
-              "count": 1
-            }
-          ],
-          "isBlockCoverage": true
-        }
-      ]
-    }
+    "text": "function a (num1, num2) {\n  return num1 + num2\n}\n\nfunction b (num) {\n  return num + 1\n}\n\na(1, 2)\nb(3)\n"
   },
   {
     "url": "file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/function-coverage-100.js",
     "ranges": [
       {
         "start": 0,
+        "end": 46
+      },
+      {
+        "start": 47,
+        "end": 85
+      },
+      {
+        "start": 86,
         "end": 102
       }
     ],
-    "text": "function a (num1, num2) {\n  return num1 + num2\n}\n\nfunction b (num) {\n  return num + 1\n}\n\na(1, 2)\nb(3)\n",
-    "rawScriptCoverage": {
-      "scriptId": "4",
-      "url": "file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/function-coverage-100.js",
-      "functions": [
-        {
-          "functionName": "",
-          "ranges": [
-            {
-              "startOffset": 0,
-              "endOffset": 102,
-              "count": 1
-            }
-          ],
-          "isBlockCoverage": true
-        },
-        {
-          "functionName": "a",
-          "ranges": [
-            {
-              "startOffset": 0,
-              "endOffset": 48,
-              "count": 1
-            }
-          ],
-          "isBlockCoverage": true
-        },
-        {
-          "functionName": "b",
-          "ranges": [
-            {
-              "startOffset": 50,
-              "endOffset": 87,
-              "count": 1
-            }
-          ],
-          "isBlockCoverage": true
-        }
-      ]
-    }
+    "text": "function a (num1, num2) {\n  return num1 + num2\n}\n\nfunction b (num) {\n  return num + 1\n}\n\na(1, 2)\nb(3)\n"
   }
 ]

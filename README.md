@@ -8,7 +8,37 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
 
 ## Usage
 
-### To Output Coverage in Istanbul Format with Puppeteer
+### To Output Coverage in Istanbul Format with Puppeteer (using `c8`)
+
+1. install _puppeteer_, `npm i -D puppeteer`.
+2. install _puppeteer-to-istanbul_, `npm i -D puppeteer-to-istanbul`.
+3. run your code in puppeteer with coverage enabled:
+
+    ```js
+    (async () => {
+      const pti = require('puppeteer-to-istanbul')
+      const puppeteer = require('puppeteer')
+      const browser = await puppeteer.launch()
+      const page = await browser.newPage()
+
+      // Enable both JavaScript and CSS coverage
+      await Promise.all([
+        page.coverage.startJSCoverage({includeRawScriptCoverage: true}),
+        page.coverage.startCSSCoverage()
+      ]);
+      // Navigate to page
+      await page.goto('https://www.google.com');
+      // Disable both JavaScript and CSS coverage
+      const [jsCoverage, cssCoverage] = await Promise.all([
+        page.coverage.stopJSCoverage(),
+        page.coverage.stopCSSCoverage(),
+      ]);
+      pti.writeC8([...jsCoverage, ...cssCoverage], { includeHostname: true , storagePath: process.env.NODE_V8_COVERAGE })
+      await browser.close()
+    })()
+    ````
+
+### To Output Coverage in Istanbul Format with Puppeteer (using `nyc`)
 
 1. install _puppeteer_, `npm i -D puppeteer`.
 2. install _puppeteer-to-istanbul_, `npm i -D puppeteer-to-istanbul`.
@@ -36,19 +66,21 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
       pti.write([...jsCoverage, ...cssCoverage], { includeHostname: true , storagePath: './.nyc_output' })
       await browser.close()
     })()
-    ```
+    ````
 
 ### To Check Istanbul Reports
 
-1. install nyc, `npm i nyc -g`.
-2. use nyc's report functionality:
+1. install c8 or nyc, `npm i c8 -g` or `npm i nyc -g`.
+2. use c8's or nyc's report functionality:
 
     ```bash
+    c8 report --reporter=html
+    # or
     nyc report --reporter=html
     ```
 
 _puppeteer-to-istanbul_ outputs temporary files in a format that can be
-consumed by nyc.
+consumed by `nyc` or `c8`.
 
 see [istanbul](https://github.com/istanbuljs/istanbuljs/tree/master/packages/istanbul-reports/lib) for a list of possible reporters.
 
